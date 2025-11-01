@@ -8,6 +8,7 @@ from shot import Shot
 
 def main():
     pygame.init()
+    game_state = "playing"
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     dt = 0 
@@ -34,6 +35,7 @@ def main():
         for asteroid in asteroids:
             if asteroid.collision(player):
                 print("Game over!")
+                game_state = "game_over"
                 sys.exit()
             for bullet in shots:
                 if asteroid.collision(bullet):
